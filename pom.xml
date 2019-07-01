@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>test</groupId>
+    <artifactId>webtest</artifactId>
+    <packaging>war</packaging>
+    <version>1.0</version>
+
+    <dependencies>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.codahale.metrics</groupId>
+            <artifactId>metrics-core</artifactId>
+            <version>3.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.codahale.metrics</groupId>
+            <artifactId>metrics-jvm</artifactId>
+            <version>3.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.codahale.metrics</groupId>
+            <artifactId>metrics-servlets</artifactId>
+            <version>3.0.2</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <!--
+        <filters> -->
+            <!-- 过滤文件,通常是一个属性文件（名值对的形式） -->
+            <!--<filter>src/main/webapp/META-INF/auto-config.properties</filter>
+
+        </filters> -->
+        <finalName>WebTest</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.2.2</version>
+                <configuration>
+                    <!--
+                        打包之前过滤掉不想要被打进 .war包的jar,
+                    -->
+                    <!--<warSourceExcludes>*/lib/analyzer-2.0.4.jar</warSourceExcludes>-->
+                    <webResources>
+                        <resource>
+                            <!-- 元配置文件的目录，相对于pom.xml文件的路径 -->
+                            <directory>WebContent/WEB-INF</directory>
+
+                            <!-- 是否过滤文件 -->
+                           <!-- <filtering>true</filtering> -->
+
+                            <!-- 目标路径 -->
+                            <targetPath>WEB-INF</targetPath>
+                        </resource>
+                    </webResources>
+                    <warSourceDirectory>WebContent</warSourceDirectory>
+                    <webXml>WebContent/WEB-INF/web.xml</webXml>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
