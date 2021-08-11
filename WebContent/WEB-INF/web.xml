@@ -1,52 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
-  <display-name>WebTest</display-name>
-  <servlet>
-    <servlet-name>logtest</servlet-name>
-    <servlet-class>test.TestLog</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>logtest</servlet-name>
-    <url-pattern>logtest</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>lock</servlet-name>
-    <servlet-class>test.TestLockSupport</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>lock</servlet-name>
-    <url-pattern>lock</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>threadDump</servlet-name>
-    <servlet-class>com.codahale.metrics.servlets.ThreadDumpServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>threadDump</servlet-name>
-    <url-pattern>threadDump</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>threadDeadLock</servlet-name>
-    <servlet-class>test.ThreadDeadlockDetector</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>threadDeadLock</servlet-name>
-    <url-pattern>threadDeadLock</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <servlet-name>cluster</servlet-name>
-    <servlet-class>test.TestCluster</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>cluster</servlet-name>
-    <url-pattern>cluster</url-pattern>
-  </servlet-mapping>
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-  </welcome-file-list>
+<web-app>
+    <display-name>WebTest</display-name>
+
+    <servlet>
+        <servlet-name>logtest</servlet-name>
+        <servlet-class>test.TestLog</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>logtest</servlet-name>
+        <url-pattern>/logtest</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>logtest2</servlet-name>
+        <servlet-class>test.TestLog2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>logtest2</servlet-name>
+        <url-pattern>/logtest2</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>lock</servlet-name>
+        <servlet-class>test.TestLockSupport</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>lock</servlet-name>
+        <url-pattern>/lock</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>testsleep</servlet-name>
+        <servlet-class>test.TestThreadSleep</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>testsleep</servlet-name>
+        <url-pattern>/testsleep</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>threadDump</servlet-name>
+        <servlet-class>com.codahale.metrics.servlets.ThreadDumpServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>threadDump</servlet-name>
+        <url-pattern>/threadDump</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>threadDeadLock</servlet-name>
+        <servlet-class>test.ThreadDeadlockDetector</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>threadDeadLock</servlet-name>
+        <url-pattern>/threadDeadLock</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>cluster</servlet-name>
+        <servlet-class>test.TestCluster</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>cluster</servlet-name>
+        <url-pattern>/cluster</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>getRes</servlet-name>
+        <servlet-class>test.TestGetResouce</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>getRes</servlet-name>
+        <url-pattern>/getRes</url-pattern>
+    </servlet-mapping>
+
+
+
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.htm</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>default.html</welcome-file>
+        <welcome-file>default.htm</welcome-file>
+        <welcome-file>default.jsp</welcome-file>
+    </welcome-file-list>
+<!--
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Protected Area</web-resource-name>
+            <url-pattern>/successful.jsp</url-pattern>
+            <http-method>DELETE</http-method>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+            <http-method>PUT</http-method>
+        </web-resource-collection>
+
+        <auth-constraint>
+            <role-name>admin</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <security-role>
+        <role-name>admin</role-name>
+    </security-role>
+
+    <login-config>
+       <auth-method>BASIC</auth-method>-->
+        <!--<auth-method>FORM</auth-method>-->
+    <!--
+        <auth-method>DIGEST</auth-method>
+
+        <realm-name>twns-realm</realm-name>
+
+        <form-login-config>
+            <form-login-page>/login.jsp</form-login-page>
+            <form-error-page>/error.jsp</form-error-page>
+        </form-login-config>
+    </login-config>
+-->
+
 </web-app>
