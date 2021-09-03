@@ -17,6 +17,7 @@
     <li><a href="cluster">集群测试</a>
     <li><a href="login.jsp">web认证测试</a>
     <li><a href="getRes">getResource测试</a>
+    <li><a href="testDBPool">数据源连接池测试</a>
 </ul>
 </body>
-</html>
+</html>L

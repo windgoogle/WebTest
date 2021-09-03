@@ -66,6 +66,15 @@
         <servlet-name>getRes</servlet-name>
         <url-pattern>/getRes</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>testDBPool</servlet-name>
+        <servlet-class>test.TestDBPool</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>testDBPool</servlet-name>
+        <url-pattern>/testDBPool</url-pattern>
+    </servlet-mapping>
+
 
 
 
