@@ -12,6 +12,9 @@ import javax.sql.DataSource;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.lang.management.ManagementFactory;
+import java.lang.management.ThreadInfo;
+import java.lang.management.ThreadMXBean;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -53,6 +56,11 @@ public class TestDBPool extends HttpServlet {
         String keepAliveThreadsStr=request.getParameter("keepaliveThreads");
         if(keepAliveThreadsStr!=null) {
             keepaliveThreads = Integer.parseInt(keepAliveThreadsStr);
+        }else{
+            keepAliveThreadsStr=request.getParameter("keepalive");
+            if(keepAliveThreadsStr!=null) {
+                keepaliveThreads = Integer.parseInt(keepAliveThreadsStr);
+            }
         }
 
         String keepaliveStr=request.getParameter("stopKeepalive");
@@ -73,6 +81,11 @@ public class TestDBPool extends HttpServlet {
         String connThreadsStr=request.getParameter("connThreads");
         if(connThreadsStr!=null) {
             connThreads = Integer.parseInt(connThreadsStr);
+        }else{
+            connThreadsStr=request.getParameter("conn");
+            if(keepAliveThreadsStr!=null) {
+                connThreads = Integer.parseInt(connThreadsStr);
+            }
         }
 
 
@@ -80,11 +93,13 @@ public class TestDBPool extends HttpServlet {
         if(delayStr!=null) {
             delay = Integer.parseInt(delayStr);
         }
-        out.println("线程数："+connThreads+" ,获取连接后， sleep "+sleepTime+" 秒。 延迟 delay  : "+delay+" 毫秒进行下一次连接。");
-        startConnThreads();
-       // if(!stopKeepAlive) {
+        out.println("线程数："+connThreads+" ,获取连接后， sleep "+sleepTime+" 秒。 延迟 delay  : "+delay+" 毫秒进行下一次连接。 keepalive 线程数： "+ keepaliveThreads);
+        if(connThreads>0) {
+            startConnThreads();
+        }
+        if(!stopKeepAlive) {
             startkeepAliveThread();
-        //}
+        }
 
     }
 
@@ -123,7 +138,7 @@ public class TestDBPool extends HttpServlet {
                 delay(delay);
             }
             Thread connThread=new Thread(new connThread());
-            connThread.setName(dsJndiName+ "-ConnThread-"+i);
+            connThread.setName(dsJndiName+ "-connThread-"+i);
             connThread.start();
 
         }
@@ -132,12 +147,14 @@ public class TestDBPool extends HttpServlet {
     public void startkeepAliveThread(){
       if(keepaliveThreads>=1) {
           for(int i=0;i<keepaliveThreads;i++) {
-              Thread keepalive = new Thread(new KeepAliveThread());
-              keepalive.setName(dsJndiName + "_keepalive_"+i);
+              String name=dsJndiName + "_keepalive_"+i;
+              if(threadExist(name)){
+                  continue;
+              }
 
-            //  if(!keepAliveList.contains(keepalive)){
-               //   keepAliveList.add(keepalive);
-             // }
+              Thread keepalive = new Thread(new KeepAliveThread());
+              keepalive.setName(name);
+
               keepalive.start();
           }
       }
@@ -151,6 +168,19 @@ public class TestDBPool extends HttpServlet {
                 e.printStackTrace();
             }
         }
+    }
+
+    public boolean threadExist(String threadName){
+       ThreadMXBean threadMXBean= ManagementFactory.getThreadMXBean();
+       ThreadInfo[] threads = threadMXBean.dumpAllThreads(false, false);
+        for(int ti = threads.length - 1; ti >= 0; --ti) {
+            ThreadInfo t = threads[ti];
+            if(threadName.equals(t.getThreadName())){
+                return true;
+            }
+        }
+
+        return false;
     }
 
 
