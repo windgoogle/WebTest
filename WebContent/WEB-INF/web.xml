@@ -74,8 +74,26 @@
         <servlet-name>testDBPool</servlet-name>
         <url-pattern>/testDBPool</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>jndi</servlet-name>
+        <servlet-class>test.JDNI</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>jndi</servlet-name>
+        <url-pattern>/jndi</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>testParam</servlet-name>
+        <servlet-class>test.RequestParamExample</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>testParam</servlet-name>
+        <url-pattern>/testParam</url-pattern>
+    </servlet-mapping>
 
-
+    <listener>
+        <listener-class>test.MyServletListener</listener-class>
+     </listener>
 
 
     <welcome-file-list>
@@ -120,5 +138,7 @@
         </form-login-config>
     </login-config>
 -->
+
+
 
 </web-app>

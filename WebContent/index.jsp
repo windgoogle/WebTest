@@ -19,6 +19,7 @@
     <li><a href="myservlet">类加载测试</a>
     <li><a href="getRes">getResource测试</a>
     <li><a href="testDBPool">数据源连接池测试</a>
+    <li><a href="testParam">请求参数</a>
     <li><a href="perf/perf.jsp">基本场景性能测试用例</a>
 </ul>
 </body>
