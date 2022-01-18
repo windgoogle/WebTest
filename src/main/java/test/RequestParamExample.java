@@ -76,6 +76,7 @@ public class RequestParamExample extends HttpServlet {
         out.println("<h3>" + title + "</h3>");
         String firstName = request.getParameter("firstname");
         String lastName = request.getParameter("lastname");
+        System.out.println("--------firstName : "+firstName+"--------lastName :"+lastName);
         out.println(RB.getString("requestparams.params-in-req") + "<br>");
         if (firstName != null || lastName != null) {
             out.println(RB.getString("requestparams.firstname"));
