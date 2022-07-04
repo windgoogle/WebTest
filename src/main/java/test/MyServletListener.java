@@ -8,7 +8,8 @@ public class MyServletListener implements ServletContextListener {
     public void contextInitialized(ServletContextEvent sce) {
         System.out.println("========listener sleep.");
         //long s=10*60*1000;
-        long s=1*60/10*1000;
+        long s=100;
+        //long s=1*60/10*1000;
         try {
             Thread.sleep(s);
         } catch (InterruptedException e) {

@@ -37,7 +37,7 @@ public class TestLockSupport extends HttpServlet {
         if ("true".equals(op)) {
             for (Thread t : threadsLocked) {
                 LockSupport.unpark(t);//释放许可
-                System.out.println("  unpark ()  done!");
+                System.out.println("Thread : "+t.getId()+","+t+"  unpark ()  done!");
             }
         } else {
             Thread thread = Thread.currentThread();
@@ -54,7 +54,7 @@ public class TestLockSupport extends HttpServlet {
 
             threadsLocked.add(thread);
             LockSupport.park();// 获取许可
-            System.out.println("  park ()  done!");
+            System.out.println("Thread : "+thread.getId()+","+thread+"  park ()  done!");
         }
 
         request.getRequestDispatcher("/index2.jsp").forward(request, response);
@@ -68,5 +68,6 @@ public class TestLockSupport extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
     }
+
 
 }

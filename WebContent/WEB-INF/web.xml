@@ -76,7 +76,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>jndi</servlet-name>
-        <servlet-class>test.JDNI</servlet-class>
+        <servlet-class>test.JNDI</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>jndi</servlet-name>

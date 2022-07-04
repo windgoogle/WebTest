@@ -54,6 +54,9 @@ public class TestLog extends HttpServlet {
 		 */
 		log.info("sdfsdfsdfasdfsdfasdf");
 		//System.getSecurityManager().checkExit(2);
+		System.out.print("########################  1 , print print print !");
+		System.out.print("######################## 2,  print print print !");
+		System.out.print("######################## 3,  print print print !");
 		System.out.println("######################## test done !");
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out=response.getWriter();
