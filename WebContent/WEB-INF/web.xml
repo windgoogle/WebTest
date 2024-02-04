@@ -90,6 +90,14 @@
         <servlet-name>testParam</servlet-name>
         <url-pattern>/testParam</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>testConnPool</servlet-name>
+        <servlet-class>test.TestConnPool</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>testConnPool</servlet-name>
+        <url-pattern>/testConnPool</url-pattern>
+    </servlet-mapping>
 
     <listener>
         <listener-class>test.MyServletListener</listener-class>
