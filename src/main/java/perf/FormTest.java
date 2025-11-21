@@ -40,8 +40,8 @@ public class FormTest extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		response.getOutputStream().print("ok");
+        String name =request.getParameter("name");
+		response.getOutputStream().print("ok"+"----get parameter : name "+name);
 		
 	}
 

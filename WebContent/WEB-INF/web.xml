@@ -98,7 +98,22 @@
         <servlet-name>testConnPool</servlet-name>
         <url-pattern>/testConnPool</url-pattern>
     </servlet-mapping>
-
+    <servlet>
+        <servlet-name>jcaTest</servlet-name>
+        <servlet-class>test.JCATest</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>jcaTest</servlet-name>
+        <url-pattern>/jcaTest</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>getQTest</servlet-name>
+        <servlet-class>test.GetQServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>getQTest</servlet-name>
+        <url-pattern>/getQTest</url-pattern>
+    </servlet-mapping>
     <listener>
         <listener-class>test.MyServletListener</listener-class>
      </listener>
