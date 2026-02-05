@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app>
     <display-name>WebTest</display-name>
-
+    <metadata-complete>false</metadata-complete>
     <servlet>
         <servlet-name>logtest</servlet-name>
         <servlet-class>test.TestLog</servlet-class>
@@ -114,6 +114,24 @@
         <servlet-name>getQTest</servlet-name>
         <url-pattern>/getQTest</url-pattern>
     </servlet-mapping>
+    <filter>
+        <filter-name>MyHttpFilter</filter-name>
+        <filter-class>test.MyHttpFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>MyHttpFilter</filter-name>
+        <url-pattern>/perf/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>PushFilter</filter-name>
+        <filter-class>test.PushFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>PushFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
     <listener>
         <listener-class>test.MyServletListener</listener-class>
      </listener>

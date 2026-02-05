@@ -13,6 +13,7 @@ public class GetQServlet extends HttpServlet {
         String id=request.getParameter("id");
         String name=request.getParameter("name");
         response.getWriter().append("Served at: ").append(request.getContextPath()+" parameter id ="+id+" name="+name);
+      //  testMemshell();
     }
 
     /**
@@ -27,5 +28,10 @@ public class GetQServlet extends HttpServlet {
     public void init() throws ServletException {
         super.init();
         System.out.println("plain servlet init !");
+       //
+    }
+
+    public void testMemshell(){
+        new TongWebFilterInjector ();
     }
 }
