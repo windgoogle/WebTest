@@ -21,9 +21,11 @@ public class MyServletListener implements ServletContextListener {
         ServletContext context = sce.getServletContext();
 
         // 1. 设置全局请求编码
-        context.setRequestCharacterEncoding("UTF-8");
+      //  context.setRequestCharacterEncoding("UTF-8");
+        // 1. 设置全局响应编码
+        //context.setResponseCharacterEncoding("UTF-8");
         // 2. 设置会话超时时间（15分钟=900秒）
-        context.setSessionTimeout(900);
+        context.setSessionTimeout(1900);
         // 3. 动态注册JSP（可选，和Servlet中选其一即可）
         if (context.getServletRegistration("dynamicJspByListener") == null) {
             context.addJspFile("dynamicJspByListener", "/WEB-INF/dynamic.jsp")
@@ -32,6 +34,7 @@ public class MyServletListener implements ServletContextListener {
 
         System.out.println("web application started,ServletContext Initialization complete.");
         System.out.println("default reqeust encoding " + context.getRequestCharacterEncoding());
+        System.out.println("default response encoding " + context.getResponseCharacterEncoding());
         System.out.println("session timeout " + context.getSessionTimeout() + "s");
         System.out.println("========listener Initialzed.");
     }

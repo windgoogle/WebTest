@@ -145,6 +145,7 @@
         <welcome-file>default.htm</welcome-file>
         <welcome-file>default.jsp</welcome-file>
     </welcome-file-list>
+
 <!--
     <security-constraint>
         <web-resource-collection>
@@ -180,6 +181,7 @@
     </login-config>
 -->
 
-
+    <request-character-encoding>UTF-8</request-character-encoding>
+    <response-character-encoding>UTF-8</response-character-encoding>
 
 </web-app>
