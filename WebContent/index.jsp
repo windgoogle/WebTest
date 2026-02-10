@@ -22,7 +22,7 @@
     <li><a href="testConnPool">测试连接池连接提交状态</a>
     <li><a href="jcaTest">jca provider list</a>
     <li><a href="getQTest?id=1%&name=sdsdsdd">get method 请求测试</a>
-
+    <li><a href="servlet40.jsp">Servlet 4.0 新特性测试</a>
 </ul>
 </body>
 </html>

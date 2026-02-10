@@ -21,8 +21,7 @@ public class PushFilter implements Filter {
         //String uri=httpServletRequest.getRequestURI();
         String uri=httpServletRequest.getServletPath();
         System.out.println("----- enter PushFilter doFilter-----"+uri);
-        System.out.println("----- global  request encoding-----"+request.getCharacterEncoding());
-        System.out.println("----- global response encoding -----"+response.getCharacterEncoding());
+
         switch (uri) {
             case "/push.jsp":
                 PushBuilder  pushBuilder=httpServletRequest.newPushBuilder();
@@ -36,6 +35,7 @@ public class PushFilter implements Filter {
                 break;
         }
         chain.doFilter(request, response);;
+        System.out.println("----- exit PushFilter -----"+uri);
     }
 
     @Override

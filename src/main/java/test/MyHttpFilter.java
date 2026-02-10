@@ -16,12 +16,13 @@ public class MyHttpFilter extends HttpFilter {
     protected void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
             throws IOException, ServletException {
         // 在请求处理前执行的逻辑（例如：日志记录、权限校验）
-        System.out.println("Intercept HTTP request <<before request>>- " + request.getRequestURI());
-
+        System.out.println("HttpFilter >>>>>Intercept HTTP request <<before request>>- " + request.getRequestURI());
+        System.out.println("----- global  request encoding-----"+request.getCharacterEncoding());
+        System.out.println("----- global response encoding -----"+response.getCharacterEncoding());
         // 继续执行过滤器链（调用下一个过滤器或目标资源）
         chain.doFilter(request, response);
 
         // 在响应返回后执行的逻辑（例如：修改响应头、记录响应时间）
-        System.out.println("Finished <<after response>> - " + response.getStatus());
+        System.out.println("HttpFilter >>>>>Finished <<after response>> - " + response.getStatus());
     }
 }
