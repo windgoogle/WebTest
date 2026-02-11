@@ -55,7 +55,7 @@ public class TrailerDemoServlet extends HttpServlet {
         // ========== 关键步骤3：添加Trailer头（响应体发送完成后） ==========
         // 方式1：单个添加（简单场景）
         // 模拟计算内容校验和（此处简化为固定值，实际可计算MD5/SHA1）
-      //  response.addTrailer("Checksum", "md5:8f7d987a6b5c4d3e2f1a0b9c8d7e6f5a");
+      //  response.addTrailer("Checksum", "md5:8f7d987a6b5c4d3e2f1a0b9c8d7e6f5a");------这个API不支持， AI写的
         //response.addTrailer("Total-Bytes", String.valueOf(totalBytes));
         final int  total=totalBytes;
         // 方式2：批量添加（Servlet 4.0新增，推荐复杂场景）
